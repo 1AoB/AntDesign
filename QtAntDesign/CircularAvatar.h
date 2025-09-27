@@ -30,7 +30,7 @@ public:
 	bool loginState() { return m_isLogin; };
 protected:
 	void paintEvent(QPaintEvent* e) override;
-	void enterEvent(QEnterEvent* e);
+	void enterEvent(QEvent* e);
 	void leaveEvent(QEvent* e);
 	void mousePressEvent(QMouseEvent* event) override;
 signals:

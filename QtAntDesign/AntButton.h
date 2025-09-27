@@ -3,7 +3,7 @@
 #include <QWidget>
 #include <QPushButton>
 #include <QEvent>
-#include <QEnterEvent>
+#include <QEvent>
 #include <QPropertyAnimation>
 #include <QParallelAnimationGroup>
 #include <QElapsedTimer>
@@ -24,7 +24,7 @@ protected:
 	// 鼠标按下 / 释放 / 悬停 / 离开事件，用来启动/结束动画并改变按钮状态
 	void mousePressEvent(QMouseEvent* event) override;
 	void mouseReleaseEvent(QMouseEvent* event) override;
-	void enterEvent(QEnterEvent* event) override;
+	void enterEvent(QEvent* event) override;
 	void leaveEvent(QEvent* event) override;
 
 private:

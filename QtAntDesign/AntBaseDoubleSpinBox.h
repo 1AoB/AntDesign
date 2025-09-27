@@ -16,7 +16,7 @@ public:
 	~AntBaseDoubleSpinBox();
 
 protected:
-	void enterEvent(QEnterEvent* event) override;
+	void enterEvent(QEvent* event) override;
 	void leaveEvent(QEvent* event) override;
 	void stepBy(int steps) override;
 	void resizeEvent(QResizeEvent* event) override;

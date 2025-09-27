@@ -44,8 +44,8 @@ RegisterPageWidget::RegisterPageWidget(QWidget* parent)
 	font.setBold(false);
 	QWidget* subWidget1 = new QWidget(leftWidget);
 	QHBoxLayout* subLay1 = new QHBoxLayout(subWidget1);
-	QLabel* subLab1 = new QLabel("邮箱注册", subWidget1);
-	loginButton = new QPushButton("登录", subWidget1);
+	QLabel* subLab1 = new QLabel(QString::fromLocal8Bit("邮箱注册"), subWidget1);
+	loginButton = new QPushButton(QString::fromLocal8Bit("登录"), subWidget1);
 	subLab1->setFont(font);
 	loginButton->setFont(font);
 	loginButton->setCursor(Qt::PointingHandCursor);
@@ -68,20 +68,20 @@ RegisterPageWidget::RegisterPageWidget(QWidget* parent)
 	// 邮箱
 	MaterialLineEdit* accountEdit = new MaterialLineEdit(leftWidget);
 	accountEdit->setFont(font);
-	accountEdit->setLabelText("邮箱");
+	accountEdit->setLabelText(QString::fromLocal8Bit("邮箱"));
 	accountEdit->setTextFontSize(10.2);
 	accountEdit->setFixedHeight(40);  // 高度可自定义
 	// 验证码
 	MaterialLineEdit* codeEdit = new MaterialLineEdit(leftWidget);
 	codeEdit->setFont(font);
-	codeEdit->setLabelText("验证码");
+	codeEdit->setLabelText(QString::fromLocal8Bit("验证码"));
 	codeEdit->setTextFontSize(10.2);
 	codeEdit->setFixedHeight(40);
-	codeEdit->setRightTextBtn("发送验证码");
+	codeEdit->setRightTextBtn(QString::fromLocal8Bit("发送验证码"));
 	// 密码
 	MaterialLineEdit* passwordEdit = new MaterialLineEdit(leftWidget);
 	passwordEdit->setFont(font);
-	passwordEdit->setLabelText("密码");
+	passwordEdit->setLabelText(QString::fromLocal8Bit("密码"));
 	passwordEdit->setTextFontSize(10.2);
 	passwordEdit->setFixedHeight(40);
 	passwordEdit->setPasswordToggleEnabled(leftWidget);
@@ -99,7 +99,7 @@ RegisterPageWidget::RegisterPageWidget(QWidget* parent)
 			errorTips[1]->showError("验证码无法发送!");
 		});
 	// 按钮
-	AntButton* antBtn = new AntButton("注册", 11.5, leftWidget);
+	AntButton* antBtn = new AntButton(QString::fromLocal8Bit("注册"), 11.5, leftWidget);
 	antBtn->setMinimumHeight(50);
 	connect(antBtn, &AntButton::clicked, this, [this, errorTips, accountEdit, codeEdit, passwordEdit]()
 		{

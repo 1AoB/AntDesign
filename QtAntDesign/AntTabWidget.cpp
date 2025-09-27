@@ -1,7 +1,7 @@
 ﻿#include "AntTabWidget.h"
 #include <QPainter>
 #include <QPainterPath>
-#include <QEnterEvent>
+#include <QEvent>
 #include "DesignSystem.h"
 
 AntTabWidget::AntTabWidget(const QString& title, const QString& icon, int tabwidth, int tabHeight, QWidget* parent)
@@ -106,7 +106,7 @@ void AntTabWidget::setTabHeight(int height)
 	update();  // 更新界面以反映更改
 }
 
-void AntTabWidget::enterEvent(QEnterEvent* /*event*/)
+void AntTabWidget::enterEvent(QEvent* /*event*/)
 {
 	m_hovered = true;
 	update();

@@ -23,7 +23,7 @@ AntTabWidgetContainer::AntTabWidgetContainer(int tabwidth, int tabHeight, bool i
 	connect(m_tabBar, &AntTabBarWidget::addTabAndContent, this, [this](QString title)
 		{
 			m_tabBar->addTab(title, ":/Imgs/git.svg");
-			TabContentWidget* contentWidget = new TabContentWidget("标签内容" + title, this);
+			TabContentWidget* contentWidget = new TabContentWidget(QString::fromLocal8Bit("标签内容") + title, this);
 			m_tabsContent.append(contentWidget);
 			m_contentWidget->addWidget(contentWidget);
 			m_contentWidget->setCurrentWidget(contentWidget);

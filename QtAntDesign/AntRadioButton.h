@@ -2,7 +2,7 @@
 #pragma once
 #include <QRadioButton>
 #include <QPropertyAnimation>
-#include <QEnterEvent>
+#include <QEvent>
 #include "DesignSystem.h"
 
 class AntRadioButton : public QRadioButton
@@ -20,7 +20,7 @@ public:
 
 protected:
 	void paintEvent(QPaintEvent* event) override;
-	void enterEvent(QEnterEvent* event);
+	void enterEvent(QEvent* event);
 	void leaveEvent(QEvent* event);
 private slots:
 	void onToggled(bool checked);

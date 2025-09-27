@@ -64,7 +64,7 @@ QStandardItemModel* AntProfileTable::createModel(const QVector<TableColumnItems>
 	QStandardItemModel* model = new QStandardItemModel(rowItems.size(), 6, this);  // 6 列，行数与 rowItems 的大小相同
 
 	// 设置列头
-	model->setHorizontalHeaderLabels({ "头像", "名字", "年龄", "地址", "标签", "操作" });
+	model->setHorizontalHeaderLabels({ QString::fromLocal8Bit("头像"), QString::fromLocal8Bit("名字"), QString::fromLocal8Bit("年龄"), QString::fromLocal8Bit("地址"), QString::fromLocal8Bit("标签"), QString::fromLocal8Bit("操作") });
 
 	// 填充数据
 	for (int row = 0; row < rowItems.size(); ++row)
@@ -114,7 +114,7 @@ QStandardItemModel* AntProfileTable::createModel(const QVector<TableColumnItems>
 void AntProfileTable::mouseMoveEvent(QMouseEvent* event)
 {
 	// 获取视图的坐标系
-	QPoint localPos = viewport()->mapFromGlobal(event->globalPosition().toPoint());
+	QPoint localPos = viewport()->mapFromGlobal(event->globalPos());
 
 	// 获取鼠标指针在视图中的位置对应的索引
 	QModelIndex hoveredIndex = indexAt(localPos);

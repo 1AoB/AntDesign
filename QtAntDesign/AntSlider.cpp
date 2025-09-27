@@ -97,7 +97,7 @@ void AntSlider::paintEvent(QPaintEvent*)
 	emit handleMoved(QPoint(handleX, height() / 2));
 }
 
-void AntSlider::enterEvent(QEnterEvent* event)
+void AntSlider::enterEvent(QEvent* event)
 {
 	QSlider::enterEvent(event);
 	m_hovered = true;

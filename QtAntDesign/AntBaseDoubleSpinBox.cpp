@@ -45,7 +45,7 @@ AntBaseDoubleSpinBox::~AntBaseDoubleSpinBox()
 	// 资源由 Qt parent-child 系统自动清理
 }
 
-void AntBaseDoubleSpinBox::enterEvent(QEnterEvent* event)
+void AntBaseDoubleSpinBox::enterEvent(QEvent* event)
 {
 	if (m_animation->state() == QAbstractAnimation::Running)
 		m_animation->stop();

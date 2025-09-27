@@ -62,7 +62,7 @@ NotificationWidget::NotificationWidget(const QString& title, QSize size, QWidget
 	msgLay->addSpacing(10);
 	msgLay->addWidget(loadingArc);
 	msgLay->addStretch();  // 右侧留白
-	AntButton* btn = new AntButton("查看详情", 12, bg);
+	AntButton* btn = new AntButton(QString::fromLocal8Bit("查看详情"), 12, bg);
 	btn->setFixedHeight(50);
 	contentLayout->addStretch();
 	contentLayout->addLayout(titleLay);

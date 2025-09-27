@@ -35,7 +35,7 @@ public:
 	~QtAntDesign();
 protected:
 	void resizeEvent(QResizeEvent* event) override;
-	bool nativeEvent(const QByteArray& eventType, void* message, qintptr* result) override;
+	bool nativeEvent(const QByteArray& eventType, void* message, long* result) override;
 	void showEvent(QShowEvent* event) override;
 	void moveEvent(QMoveEvent* event) override;
 	void changeEvent(QEvent* event) override;

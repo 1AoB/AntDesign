@@ -111,7 +111,7 @@ QSize AntRadioButton::sizeHint() const
 	return QSize(width, height);
 }
 
-void AntRadioButton::enterEvent(QEnterEvent* event)
+void AntRadioButton::enterEvent(QEvent* event)
 {
 	m_hovered = true;
 	update(); // 触发重绘

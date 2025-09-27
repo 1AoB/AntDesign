@@ -1,6 +1,7 @@
 ﻿#include "TagWidget.h"
 #include <QPainter>
 #include <QFontMetrics>
+#include <QDebug>
 
 TagWidget::TagWidget(const QString& text, qreal fontSize, QColor bgColor, QWidget* parent,
 	bool hasIcon, const QString& svgPath, int iconSize)

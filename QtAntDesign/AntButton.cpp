@@ -1,7 +1,8 @@
 ﻿#include "AntButton.h"
 #include <QPainter>
 #include <QPainterPath>
-#include <QOverload>
+//#include <QOverload>
+#include <QtCore/qobjectdefs.h>
 #include "DesignSystem.h"
 
 AntButton::AntButton(QString btnText, qreal textSize, QWidget* parent)
@@ -114,7 +115,7 @@ void AntButton::mouseReleaseEvent(QMouseEvent* event)
 	QPushButton::mouseReleaseEvent(event);
 }
 
-void AntButton::enterEvent(QEnterEvent* event)
+void AntButton::enterEvent(QEvent* event)
 {
 	m_hovered = true;
 	update();

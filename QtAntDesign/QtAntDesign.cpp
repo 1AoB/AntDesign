@@ -110,15 +110,15 @@ QtAntDesign::QtAntDesign(QWidget* parent)
 
 	// 搜索栏
 	QStringList listItems = {
-	"华为", "谷歌", "微软", "亚马逊", "特斯拉", "苹果",
-	"英伟达", "Meta（脸书）", "字节跳动", "腾讯", "阿里巴巴",
-	"百度",  "小米", "三星", "英特尔",
-	"高通", "索尼", "拼多多", "OpenAI", "美团"
+	QString::fromLocal8Bit("华为"), QString::fromLocal8Bit("谷歌"), QString::fromLocal8Bit("微软"), QString::fromLocal8Bit("亚马逊"), QString::fromLocal8Bit("特斯拉"), QString::fromLocal8Bit("苹果"),
+	QString::fromLocal8Bit("英伟达"), QString::fromLocal8Bit("Meta（脸书）"), QString::fromLocal8Bit("字节跳动"), QString::fromLocal8Bit("腾讯"), QString::fromLocal8Bit("阿里巴巴"),
+	QString::fromLocal8Bit("百度"),  QString::fromLocal8Bit("小米"), QString::fromLocal8Bit("三星"), QString::fromLocal8Bit("英特尔"),
+	QString::fromLocal8Bit("高通"), QString::fromLocal8Bit("索尼"), QString::fromLocal8Bit("拼多多"), "OpenAI", QString::fromLocal8Bit("美团")
 	};
 	antInput = new AntInput(300, listItems, ui.titleBar);
 	antInput->setFixedWidth(254);
 	antInput->setFixedHeight(46);
-	antInput->setPlaceholderText("搜索内容");
+	antInput->setPlaceholderText(QString::fromLocal8Bit("搜索内容"));
 
 	// 标题栏右侧所有控件的长宽转为物理像素后在native事件中限制标题栏的范围
 	qreal dpiScale = QApplication::primaryScreen()->devicePixelRatio();
@@ -358,7 +358,7 @@ void QtAntDesign::resizeEvent(QResizeEvent* event)
 	DesignSystem::instance()->setContentSize(QSize(width() - m_naviWidth, height()));
 }
 
-bool QtAntDesign::nativeEvent(const QByteArray& eventType, void* message, qintptr* result)
+bool QtAntDesign::nativeEvent(const QByteArray& eventType, void* message, long* result)
 {
 #ifdef Q_OS_WIN
 	MSG* msg = static_cast<MSG*>(message);

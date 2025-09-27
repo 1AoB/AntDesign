@@ -3,6 +3,7 @@
 #include <QWidget>
 #include <QList>
 #include "AntMessage.h"
+#include <QDesktopWidget>
 
 class AntMessageManager : public QWidget
 {

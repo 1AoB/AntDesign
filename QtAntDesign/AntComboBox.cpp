@@ -210,7 +210,7 @@ void AntComboBox::paintEvent(QPaintEvent*)
 	m_arrowRenderer->render(&p, arrowRect);
 }
 
-void AntComboBox::enterEvent(QEnterEvent*)
+void AntComboBox::enterEvent(QEvent*)
 {
 	if (m_isPressed) return;
 	m_borderColor = DesignSystem::instance()->primaryColor();

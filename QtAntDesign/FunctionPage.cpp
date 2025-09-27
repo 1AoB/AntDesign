@@ -65,10 +65,10 @@ FunctionPage::FunctionPage(QWidget* parent)
 	NoDataWidget* noData = new NoDataWidget(this);
 
 	// 添加标签项
-	tabWidget->addTab(scrollArea1, "常用控件");
-	tabWidget->addTab(scrollArea2, "视图控件");
-	tabWidget->addTab(w3, "流式布局");
-	tabWidget->addTab(noData, "暂无数据");
+	tabWidget->addTab(scrollArea1, QString::fromLocal8Bit("常用控件"));
+	tabWidget->addTab(scrollArea2, QString::fromLocal8Bit("视图控件"));
+	tabWidget->addTab(w3, QString::fromLocal8Bit("流式布局"));
+	tabWidget->addTab(noData, QString::fromLocal8Bit("暂无数据"));
 
 	// 主布局
 	QVBoxLayout* layout = new QVBoxLayout(this);
@@ -96,15 +96,15 @@ FunctionPage::FunctionPage(QWidget* parent)
 
 	carousel = new CarouselWidget(QSize(1150, 330), 5, imagePaths, this);
 	// 启用标签
-	carousel->getCards()[0]->addTab("新发布", QColor(255, 50, 49));					// 鲜红，新品强调
-	carousel->getCards()[1]->addTab("限时折扣", QColor(255, 136, 0));					// 橙色，促销活动
-	carousel->getCards()[2]->addTab("热销中", QColor(255, 69, 0));					// 橘红，高热度
-	carousel->getCards()[3]->addTab("推荐", QColor(0, 160, 233));					// 天蓝，系统推荐
-	carousel->getCards()[4]->addTab("精选", QColor(92, 184, 92));					// 草绿，高质量精选
-	carousel->getCards()[5]->addTab("预售", QColor(255, 102, 153));					// 粉色，预售状态
-	carousel->getCards()[6]->addTab("会员专享", QColor(255, 215, 0));					// 金色，专属权益
-	carousel->getCards()[7]->addTab("限量发售", QColor(153, 102, 255));				// 紫色，稀缺商品
-	carousel->getCards()[8]->addTab("免费试用", QColor(135, 206, 250));				// 浅蓝色
+	carousel->getCards()[0]->addTab(QString::fromLocal8Bit("新发布"), QColor(255, 50, 49));					// 鲜红，新品强调
+	carousel->getCards()[1]->addTab(QString::fromLocal8Bit("限时折扣"), QColor(255, 136, 0));					// 橙色，促销活动
+	carousel->getCards()[2]->addTab(QString::fromLocal8Bit("热销中"), QColor(255, 69, 0));					// 橘红，高热度
+	carousel->getCards()[3]->addTab(QString::fromLocal8Bit("推荐"), QColor(0, 160, 233));					// 天蓝，系统推荐
+	carousel->getCards()[4]->addTab(QString::fromLocal8Bit("精选"), QColor(92, 184, 92));					// 草绿，高质量精选
+	carousel->getCards()[5]->addTab(QString::fromLocal8Bit("预售"), QColor(255, 102, 153));					// 粉色，预售状态
+	carousel->getCards()[6]->addTab(QString::fromLocal8Bit("会员专享"), QColor(255, 215, 0));					// 金色，专属权益
+	carousel->getCards()[7]->addTab(QString::fromLocal8Bit("限量发售"), QColor(153, 102, 255));				// 紫色，稀缺商品
+	carousel->getCards()[8]->addTab(QString::fromLocal8Bit("免费试用"), QColor(135, 206, 250));				// 浅蓝色
 	// 启用文本内容 启用url按钮
 	carousel->getCards()[0]->setTextContent("英伟达RTX显卡（NVIDIA Graphics Cards）");
 	carousel->getCards()[0]->enableUrlBtn(QUrl("https://www.nvidia.cn/geforce/"));
@@ -146,7 +146,7 @@ FunctionPage::FunctionPage(QWidget* parent)
 
 	QStringList nameList;
 	QList<QLabel*>labelList;
-	nameList << "开关按钮" << "进度条" << "水平滑动条" << "统计数值";
+	nameList << QString::fromLocal8Bit("开关按钮") << QString::fromLocal8Bit("进度条") << QString::fromLocal8Bit("水平滑动条") << QString::fromLocal8Bit("统计数值");
 	for (auto& str : nameList)
 	{
 		QLabel* nameLabel = new QLabel(str, this);
@@ -183,7 +183,7 @@ FunctionPage::FunctionPage(QWidget* parent)
 	animNum->animateTo(12345);
 
 	// 骨架屏
-	AntButton* skeletonDescBtn = new AntButton("骨架屏启动", 12, w1);
+	AntButton* skeletonDescBtn = new AntButton(QString::fromLocal8Bit("骨架屏启动"), 12, w1);
 	skeletonDescBtn->setFixedSize(120, 50);
 	QHBoxLayout* row3Layout = new QHBoxLayout();
 	row3Layout->setSpacing(8);
@@ -249,21 +249,21 @@ FunctionPage::FunctionPage(QWidget* parent)
 	row4Layout->setSpacing(18);
 	row4Layout->setContentsMargins(0, 0, 0, 0);
 
-	AntButton* taskBtn = new AntButton("任务通知", 12, w1);
+	AntButton* taskBtn = new AntButton(QString::fromLocal8Bit("任务通知"), 12, w1);
 	taskBtn->setFixedSize(120, 50);
 	connect(taskBtn, &AntButton::clicked, this, [this]()
 		{
-			NotificationManager::instance()->showNotification("任务通知");
+			NotificationManager::instance()->showNotification(QString::fromLocal8Bit("任务通知"));
 		});
 
 	// 数字输入框
-	QLabel* spinBoxLabel1 = new QLabel("数字输入框", this);
+	QLabel* spinBoxLabel1 = new QLabel(QString::fromLocal8Bit("数字输入框"), this);
 	AntNumberInput* spinbox = new AntNumberInput(this);
 	spinbox->setFixedSize(90, 46);
 	spinbox->input()->setRange(0, 100);			// 调整数值范围
 	spinbox->input()->setValue(10);				// 设置初始值
 	// 小数数字输入框
-	QLabel* spinBoxLabel2 = new QLabel("小数数字输入框", this);
+	QLabel* spinBoxLabel2 = new QLabel(QString::fromLocal8Bit("小数数字输入框"), this);
 	AntDoubleNumberInput* doubleSpinBox = new AntDoubleNumberInput(this);
 	doubleSpinBox->setFixedSize(90, 46);
 	doubleSpinBox->input()->setDecimals(1);					// 设置保留 1 位小数
@@ -276,19 +276,19 @@ FunctionPage::FunctionPage(QWidget* parent)
 	row5Layout->setContentsMargins(0, 0, 0, 0);
 
 	// 单层级下拉框
-	QLabel* comboLabel1 = new QLabel("下拉框", this);
-	QStringList topItems1 = { "水果", "蔬菜", "饮料", "汤", "零食", "烘焙", "速食" };
-	AntComboBox* combo1 = new AntComboBox("请选择", topItems1, this);
+	QLabel* comboLabel1 = new QLabel(QString::fromLocal8Bit("下拉框"), this);
+	QStringList topItems1 = { QString::fromLocal8Bit("水果"), QString::fromLocal8Bit("蔬菜"), QString::fromLocal8Bit("饮料"), QString::fromLocal8Bit("汤"), QString::fromLocal8Bit("零食"), QString::fromLocal8Bit("烘焙"), QString::fromLocal8Bit("速食") };
+	AntComboBox* combo1 = new AntComboBox(QString::fromLocal8Bit("请选择"), topItems1, this);
 	combo1->setFixedSize(185, 48);
 	// 多层级下拉框
-	QLabel* comboLabel2 = new QLabel("多层级下拉框", this);
-	QStringList topItems2 = { "水果", "蔬菜", "饮料" };
+	QLabel* comboLabel2 = new QLabel(QString::fromLocal8Bit("多层级下拉框"), this);
+	QStringList topItems2 = { QString::fromLocal8Bit("水果"), QString::fromLocal8Bit("蔬菜"), QString::fromLocal8Bit("饮料") };
 	QMap<QString, QStringList> subItemMap = {
-		{ "水果", {"苹果", "香蕉", "西瓜"} },
-		{ "蔬菜", {"白菜", "萝卜", "西红柿"} },
-		{ "饮料", {"可乐", "雪碧", "果汁"} }
+		{ QString::fromLocal8Bit("水果"), {QString::fromLocal8Bit("苹果"), QString::fromLocal8Bit("香蕉"), QString::fromLocal8Bit("西瓜")} },
+		{ QString::fromLocal8Bit("蔬菜"), {QString::fromLocal8Bit("白菜"), QString::fromLocal8Bit("萝卜"), QString::fromLocal8Bit("西红柿")} },
+		{ QString::fromLocal8Bit("饮料"), {QString::fromLocal8Bit("可乐"), QString::fromLocal8Bit("雪碧"), QString::fromLocal8Bit("果汁")} }
 	};
-	AntComboBox* combo2 = new AntComboBox("请选择", topItems2, this, 200, true, subItemMap);
+	AntComboBox* combo2 = new AntComboBox(QString::fromLocal8Bit("请选择"), topItems2, this, 200, true, subItemMap);
 	combo2->setFixedSize(185, 48);
 
 	// 让下拉框遮罩跟随页面大小变化
@@ -327,7 +327,7 @@ FunctionPage::FunctionPage(QWidget* parent)
 	row6Layout->setSpacing(10);
 	row6Layout->setContentsMargins(0, 22, 0, 22);
 
-	QLabel* tagLabel = new QLabel("标签", this);
+	QLabel* tagLabel = new QLabel(QString::fromLocal8Bit("标签"), this);
 
 	// 初始化配置信息列表
 	QList<TagWidget::TagInfo> tagList1 = {
@@ -366,19 +366,19 @@ FunctionPage::FunctionPage(QWidget* parent)
 	CardWidget* card = new CardWidget("上次登录：xxxx-xx-xx", "总运行时间：xxx小时", this);
 	card->setImageFile(":/Imgs/gpt.jpg");
 	card->setFixedSize(320, 200);
-	QLabel* cardLabel = new QLabel("卡片", this);
+	QLabel* cardLabel = new QLabel(QString::fromLocal8Bit("卡片"), this);
 
 	// 二维码
 	QrCodeWidget* qrCode = new QrCodeWidget(this);
 	qrCode->setMinimumSize(QSize(240, 240));
 	qrCode->setData(QString("https://ant-design.antgroup.com/index-cn"));
-	QLabel* qrCodeLabel = new QLabel("二维码", this);
+	QLabel* qrCodeLabel = new QLabel(QString::fromLocal8Bit("二维码"), this);
 
 	// 抽屉 注意父对象要设置为主窗口
 	QHBoxLayout* row8Layout = new QHBoxLayout();
 	row8Layout->setSpacing(10);
 	DrawerWidget* drawer = new DrawerWidget(280, DesignSystem::instance()->getMainWindow());
-	AntButton* drawerBtn = new AntButton("打开左侧抽屉", 12, w1);
+	AntButton* drawerBtn = new AntButton(QString::fromLocal8Bit("打开左侧抽屉"), 12, w1);
 	drawerBtn->setFixedSize(140, 50);
 	connect(this, &FunctionPage::resized, this, [=](int w, int h)
 		{
@@ -421,13 +421,13 @@ FunctionPage::FunctionPage(QWidget* parent)
 
 	// 创建标签
 	QList<QLabel*> badgeLabelList = {
-		new QLabel("圆形徽章", this),
-		new QLabel("圆角矩形徽章", this),
-		new QLabel("成功", this),
-		new QLabel("错误", this),
-		new QLabel("运行中", this),
-		new QLabel("警告", this),
-		new QLabel("默认", this)
+		new QLabel(QString::fromLocal8Bit("圆形徽章"), this),
+		new QLabel(QString::fromLocal8Bit("圆角矩形徽章"), this),
+		new QLabel(QString::fromLocal8Bit("成功"), this),
+		new QLabel(QString::fromLocal8Bit("错误"), this),
+		new QLabel(QString::fromLocal8Bit("运行中"), this),
+		new QLabel(QString::fromLocal8Bit("警告"), this),
+		new QLabel(QString::fromLocal8Bit("默认"), this)
 	};
 
 	// 第九行布局
@@ -449,7 +449,7 @@ FunctionPage::FunctionPage(QWidget* parent)
 	TabContentWidget* testWidget = new TabContentWidget("标签内容Tab 0", w1);
 	antTabContainer->addTab("Tab 0", ":/Imgs/git.svg", testWidget);
 	QVBoxLayout* row10Layout = new QVBoxLayout();
-	QLabel* antTabLabel = new QLabel("标签选项卡", this);
+	QLabel* antTabLabel = new QLabel(QString::fromLocal8Bit("标签选项卡"), this);
 	// 外部包裹的容器
 	container = new QWidget(w1);
 	container->setObjectName("TabContainer");
@@ -552,21 +552,21 @@ void FunctionPage::initViewPage()
 	scrollArea2->addWidget(w2);
 	// 创建聊天项数据
 	QVector<AntChatListView::ChatItem> chatItems = {
-	{":/Imgs/bee.png", "张三", "你好，最近怎么样？", "10:30 AM", false},
-	{":/Imgs/bee.png", "李四", "我很好，谢谢！你呢？", "10:31 AM", true},
-	{":/Imgs/bee.png", "王五", "我们今天见面吗？", "10:32 AM", false},
-	{":/Imgs/bee.png", "赵六", "今天晚上有空吗？", "10:33 AM", false},
-	{":/Imgs/bee.png", "孙七", "今晚八点见！", "10:34 AM", true},
-	{":/Imgs/bee.png", "周八", "好的，八点见！", "10:35 AM", false},
-	{":/Imgs/bee.png", "吴九", "你最近在忙什么？", "10:36 AM", false},
-	{":/Imgs/bee.png", "郑十", "最近工作挺忙的，快累死了", "10:37 AM", true},
-	{":/Imgs/bee.png", "冯十一", "加油！工作顺利啊！", "10:38 AM", false},
-	{":/Imgs/bee.png", "陈十二", "谢谢，努力！", "10:39 AM", true},
-	{":/Imgs/bee.png", "李十三", "晚安，明天见！", "10:40 AM", false},
-	{":/Imgs/bee.png", "王十四", "晚安，做个好梦！", "10:41 AM", true},
-	{":/Imgs/bee.png", "刘十五", "明天的计划是什么？", "10:42 AM", false},
-	{":/Imgs/bee.png", "张十六", "明天要去参加会议！", "10:43 AM", true},
-	{":/Imgs/bee.png", "黄十七", "祝你成功！", "10:44 AM", false},
+	{":/Imgs/bee.png", QString::fromLocal8Bit("张三"), QString::fromLocal8Bit("你好，最近怎么样？"), QString::fromLocal8Bit("10:30 AM"), false},
+	{":/Imgs/bee.png", QString::fromLocal8Bit("李四"), "我很好，谢谢！你呢？", "10:31 AM", true},
+	{":/Imgs/bee.png", QString::fromLocal8Bit("王五"), "我们今天见面吗？", "10:32 AM", false},
+	{":/Imgs/bee.png", QString::fromLocal8Bit("赵六"), "今天晚上有空吗？", "10:33 AM", false},
+	{":/Imgs/bee.png", QString::fromLocal8Bit("孙七"), "今晚八点见！", "10:34 AM", true},
+	{":/Imgs/bee.png", QString::fromLocal8Bit("周八"), "好的，八点见！", "10:35 AM", false},
+	{":/Imgs/bee.png", QString::fromLocal8Bit("吴九"), "你最近在忙什么？", "10:36 AM", false},
+	{":/Imgs/bee.png", QString::fromLocal8Bit("郑十"), "最近工作挺忙的，快累死了", "10:37 AM", true},
+	{":/Imgs/bee.png", QString::fromLocal8Bit("冯十一"), "加油！工作顺利啊！", "10:38 AM", false},
+	{":/Imgs/bee.png", QString::fromLocal8Bit("陈十二"), "谢谢，努力！", "10:39 AM", true},
+	{":/Imgs/bee.png", QString::fromLocal8Bit("李十三"), "晚安，明天见！", "10:40 AM", false},
+	{":/Imgs/bee.png", QString::fromLocal8Bit("王十四"), "晚安，做个好梦！", "10:41 AM", true},
+	{":/Imgs/bee.png", QString::fromLocal8Bit("刘十五"), "明天的计划是什么？", "10:42 AM", false},
+	{":/Imgs/bee.png", QString::fromLocal8Bit("张十六"), "明天要去参加会议！", "10:43 AM", true},
+	{":/Imgs/bee.png", QString::fromLocal8Bit("黄十七"), "祝你成功！", "10:44 AM", false},
 	// 更多数据...
 	};
 	// 创建你的自定义列表视图
@@ -578,13 +578,13 @@ void FunctionPage::initViewPage()
 	chatList->setFixedHeight(600);
 	// 视图页布局
 	QVBoxLayout* w2Lay = new QVBoxLayout(w2);
-	QLabel* listViewLab = new QLabel("列表视图", w2);
+	QLabel* listViewLab = new QLabel(QString::fromLocal8Bit("列表视图"), w2);
 	listViewLab->setFixedHeight(20);
 	w2Lay->setContentsMargins(10, 0, 10, 0);
 	w2Lay->setSpacing(10);
 
 	// 表格
-	QLabel* tableViewLab = new QLabel("表格视图", w2);
+	QLabel* tableViewLab = new QLabel(QString::fromLocal8Bit("表格视图"), w2);
 	TableColumnLayout colLayout = {
 	60,         // avatarWidth
 	80,         // actionWidth
@@ -599,119 +599,119 @@ void FunctionPage::initViewPage()
 	rowItems = {
 	{
 		QPixmap(":/Imgs/bee.png"),
-		"张三",
+		QString::fromLocal8Bit("张三"),
 		"28",
-		"北京市朝阳区",
+		QString::fromLocal8Bit("北京市朝阳区"),
 		{
-			{ "程序员", QColor(255, 87, 34, tagAlpha) },       // 活跃橙（#FF5722）
-			{ "北京", QColor(33, 150, 243, tagAlpha) },        // 明亮蓝（#2196F3）
-			{ "技术狂人", QColor(76, 175, 80, tagAlpha) }       // 草绿色（#4CAF50）
+			{ QString::fromLocal8Bit("程序员"), QColor(255, 87, 34, tagAlpha) },       // 活跃橙（#FF5722）
+			{ QString::fromLocal8Bit("北京"), QColor(33, 150, 243, tagAlpha) },        // 明亮蓝（#2196F3）
+			{ QString::fromLocal8Bit("技术狂人"), QColor(76, 175, 80, tagAlpha) }       // 草绿色（#4CAF50）
 		},
-		"编辑"
+		QString::fromLocal8Bit("编辑")
 	},
 	{
 		QPixmap(":/Imgs/bee.png"),
-		"李四",
+		QString::fromLocal8Bit("李四"),
 		"34",
-		"上海市浦东新区",
+		QString::fromLocal8Bit("上海市浦东新区"),
 		{
-			{ "设计师", QColor(156, 39, 176, tagAlpha) },       // 鲜紫（#9C27B0）
-			{ "上海", QColor(63, 81, 181, tagAlpha) },          // 靛蓝（#3F51B5）
-			{ "创意达人", QColor(233, 30, 99, tagAlpha) }       // 亮粉（#E91E63）
+			{ QString::fromLocal8Bit("设计师"), QColor(156, 39, 176, tagAlpha) },       // 鲜紫（#9C27B0）
+			{ QString::fromLocal8Bit("上海"), QColor(63, 81, 181, tagAlpha) },          // 靛蓝（#3F51B5）
+			{ QString::fromLocal8Bit("创意达人"), QColor(233, 30, 99, tagAlpha) }       // 亮粉（#E91E63）
 		},
-		"删除"
+		QString::fromLocal8Bit("删除")
 	},
 	{
 		QPixmap(":/Imgs/bee.png"),
-		"王五",
+		QString::fromLocal8Bit("王五"),
 		"22",
-		"广州市天河区",
+		QString::fromLocal8Bit("广州市天河区"),
 		{
-			{ "学生", QColor(96, 125, 139, tagAlpha) },         // 蓝灰（#607D8B）
-			{ "广州", QColor(121, 85, 72, tagAlpha) }           // 深棕（#795548）
+			{ QString::fromLocal8Bit("学生"), QColor(96, 125, 139, tagAlpha) },         // 蓝灰（#607D8B）
+			{ QString::fromLocal8Bit("广州"), QColor(121, 85, 72, tagAlpha) }           // 深棕（#795548）
 		},
-		"查看"
+		QString::fromLocal8Bit("查看")
 	},
 	{
 		QPixmap(":/Imgs/bee.png"),
-		"赵六",
+		QString::fromLocal8Bit("赵六"),
 		"45",
-		"深圳市南山区",
+		QString::fromLocal8Bit("深圳市南山区"),
 		{
 			{ "CEO", QColor(255, 193, 7, tagAlpha) },           // 琥珀黄（#FFC107）
-			{ "深圳", QColor(0, 150, 136, tagAlpha) },          // 青绿（#009688）
-			{ "企业家", QColor(139, 195, 74, tagAlpha) }        // 浅绿（#8BC34A）
+			{ QString::fromLocal8Bit("深圳"), QColor(0, 150, 136, tagAlpha) },          // 青绿（#009688）
+			{ QString::fromLocal8Bit("企业家"), QColor(139, 195, 74, tagAlpha) }        // 浅绿（#8BC34A）
 		},
-		"详情"
+		QString::fromLocal8Bit("详情")
 	},
 	{
 		QPixmap(":/Imgs/bee.png"),
-		"钱七",
+		QString::fromLocal8Bit("钱七"),
 		"30",
-		"武汉市江汉区",
+		QString::fromLocal8Bit("武汉市江汉区"),
 		{
-			{ "项目经理", QColor(121, 85, 72, tagAlpha) },      // 棕色
-			{ "武汉", QColor(103, 58, 183, tagAlpha) },         // 深紫（#673AB7）
-			{ "团队领袖", QColor(255, 152, 0, tagAlpha) }       // 鲜橙（#FF9800）
+			{ QString::fromLocal8Bit("项目经理"), QColor(121, 85, 72, tagAlpha) },      // 棕色
+			{ QString::fromLocal8Bit("武汉"), QColor(103, 58, 183, tagAlpha) },         // 深紫（#673AB7）
+			{ QString::fromLocal8Bit("团队领袖"), QColor(255, 152, 0, tagAlpha) }       // 鲜橙（#FF9800）
 		},
-		"编辑"
+		QString::fromLocal8Bit("编辑")
 	},
 	{
 		QPixmap(":/Imgs/bee.png"),
-		"孙八",
+		QString::fromLocal8Bit("孙八"),
 		"25",
-		"成都市武侯区",
+		QString::fromLocal8Bit("成都市武侯区"),
 		{
-			{ "产品经理", QColor(63, 81, 181, tagAlpha) },      // 靛蓝
-			{ "成都", QColor(33, 150, 243, tagAlpha) },         // 蓝
-			{ "产品思维", QColor(76, 175, 80, tagAlpha) }       // 绿
+			{ QString::fromLocal8Bit("产品经理"), QColor(63, 81, 181, tagAlpha) },      // 靛蓝
+			{ QString::fromLocal8Bit("成都"), QColor(33, 150, 243, tagAlpha) },         // 蓝
+			{ QString::fromLocal8Bit("产品思维"), QColor(76, 175, 80, tagAlpha) }       // 绿
 		},
-		"删除"
+		QString::fromLocal8Bit("删除")
 	},
 	{
 		QPixmap(":/Imgs/bee.png"),
-		"周九",
+		QString::fromLocal8Bit("周九"),
 		"40",
-		"重庆市渝中区",
+		QString::fromLocal8Bit("重庆市渝中区"),
 		{
-			{ "设计总监", QColor(156, 39, 176, tagAlpha) },     // 紫
-			{ "重庆", QColor(233, 30, 99, tagAlpha) }           // 粉
+			{ QString::fromLocal8Bit("设计总监"), QColor(156, 39, 176, tagAlpha) },     // 紫
+			{ QString::fromLocal8Bit("重庆"), QColor(233, 30, 99, tagAlpha) }           // 粉
 		},
-		"查看"
+		QString::fromLocal8Bit("查看")
 	},
 	{
 		QPixmap(":/Imgs/bee.png"),
-		"吴十",
+		QString::fromLocal8Bit("吴十"),
 		"33",
-		"杭州市西湖区",
+		QString::fromLocal8Bit("杭州市西湖区"),
 		{
-			{ "营销总监", QColor(244, 67, 54, tagAlpha) },      // 红（#F44336）
-			{ "杭州", QColor(0, 150, 136, tagAlpha) },          // 青绿
-			{ "互联网营销", QColor(255, 193, 7, tagAlpha) }     // 琥珀黄
+			{ QString::fromLocal8Bit("营销总监"), QColor(244, 67, 54, tagAlpha) },      // 红（#F44336）
+			{ QString::fromLocal8Bit("杭州"), QColor(0, 150, 136, tagAlpha) },          // 青绿
+			{ QString::fromLocal8Bit("互联网营销"), QColor(255, 193, 7, tagAlpha) }     // 琥珀黄
 		},
-		"详情"
+		QString::fromLocal8Bit("详情")
 	},
 	{
 		QPixmap(":/Imgs/bee.png"),
-		"郑十一",
+		QString::fromLocal8Bit("郑十一"),
 		"27",
-		"南京市秦淮区",
+		QString::fromLocal8Bit("南京市秦淮区"),
 		{
-			{ "技术支持", QColor(33, 150, 243, tagAlpha) },     // 蓝
-			{ "南京", QColor(76, 175, 80, tagAlpha) }           // 绿
+			{ QString::fromLocal8Bit("技术支持"), QColor(33, 150, 243, tagAlpha) },     // 蓝
+			{ QString::fromLocal8Bit("南京"), QColor(76, 175, 80, tagAlpha) }           // 绿
 		},
-		"编辑"
+		QString::fromLocal8Bit("编辑")
 	},
 	{
 		QPixmap(":/Imgs/bee.png"),
-		"冯十二",
+		QString::fromLocal8Bit("冯十二"),
 		"38",
-		"厦门市思明区",
+		QString::fromLocal8Bit("厦门市思明区"),
 		{
-			{ "市场经理", QColor(255, 87, 34, tagAlpha) },      // 橙
-			{ "厦门", QColor(121, 85, 72, tagAlpha) }           // 棕
+			{ QString::fromLocal8Bit("市场经理"), QColor(255, 87, 34, tagAlpha) },      // 橙
+			{ QString::fromLocal8Bit("厦门"), QColor(121, 85, 72, tagAlpha) }           // 棕
 		},
-		"删除"
+		QString::fromLocal8Bit("删除")
 	}
 	};
 
@@ -791,25 +791,25 @@ void FunctionPage::initViewPage()
 
 	// 树视图
 	AntTreeView* tree = new AntTreeView(60, w2);
-	QLabel* treeViewLab = new QLabel("树视图", w2);
+	QLabel* treeViewLab = new QLabel(QString::fromLocal8Bit("树视图"), w2);
 
 	QList<AntTreeView::ItemData> peoples = {
 	{
-		"张三", QIcon(":/Imgs/bee.png"),
+		QString::fromLocal8Bit("张三"), QIcon(":/Imgs/bee.png"),
 		{
 			{ "张三的儿子1", QIcon(":/Imgs/bee.png") },
 			{ "张三的儿子2", QIcon(":/Imgs/bee.png") }
 		}
 	},
 	{
-		"李四", QIcon(":/Imgs/bee.png"),
+		QString::fromLocal8Bit("李四"), QIcon(":/Imgs/bee.png"),
 		{
 			{ "李四的女儿1", QIcon(":/Imgs/bee.png") },
 			{ "李四的女儿2", QIcon(":/Imgs/bee.png") }
 		}
 	},
 	{
-		"王五", QIcon(":/Imgs/bee.png"),
+		QString::fromLocal8Bit("王五"), QIcon(":/Imgs/bee.png"),
 		{
 			{ "王五的儿子1", QIcon(":/Imgs/bee.png") },
 			{
@@ -823,13 +823,13 @@ void FunctionPage::initViewPage()
 		}
 	},
 	{
-		"赵六", QIcon(":/Imgs/bee.png"),
+		QString::fromLocal8Bit("赵六"), QIcon(":/Imgs/bee.png"),
 		{
 			{ "赵六的女儿1", QIcon(":/Imgs/bee.png") }
 		}
 	},
 	{
-		"钱七", QIcon(":/Imgs/bee.png"),
+		QString::fromLocal8Bit("钱七"), QIcon(":/Imgs/bee.png"),
 		{
 			{ "钱七的儿子1", QIcon(":/Imgs/bee.png") },
 			{
@@ -843,13 +843,13 @@ void FunctionPage::initViewPage()
 		}
 	},
 	{
-		"孙八", QIcon(":/Imgs/bee.png"),
+		QString::fromLocal8Bit("孙八"), QIcon(":/Imgs/bee.png"),
 		{
 			{ "孙八的儿子1", QIcon(":/Imgs/bee.png") }
 		}
 	},
 	{
-		"周九", QIcon(":/Imgs/bee.png"),
+		QString::fromLocal8Bit("周九"), QIcon(":/Imgs/bee.png"),
 		{
 			{ "周九的儿子1", QIcon(":/Imgs/bee.png") },
 			{ "周九的儿子2", QIcon(":/Imgs/bee.png") }

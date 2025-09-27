@@ -33,12 +33,12 @@ FramelessVideoWindow::FramelessVideoWindow(const QString& videoPath, QWidget* pa
 
 	m_player = new QMediaPlayer(this);
 	m_player->setVideoOutput(m_videoItem);
-	m_player->setSource(QUrl::fromLocalFile(videoPath));
-	m_player->setLoops(QMediaPlayer::Infinite); // 无限循环
+	m_player->setMedia(QUrl::fromLocalFile(videoPath));
+	//m_player->setLoops(QMediaPlayer::Infinite); // 无限循环
 
 	// 模糊玻璃
 	glassWidget1 = new GlassWidget(0, 0, this);
-	glassWidget1->setPixmapAndText(":/Imgs/github.png", "QtAntDesign Github", "如果你觉得这个有用，欢迎在GitHub上点个Star支持一下~");
+	glassWidget1->setPixmapAndText(":/Imgs/github.png", "QtAntDesign Github", QString::fromLocal8Bit("如果你觉得这个有用，欢迎在GitHub上点个Star支持一下~"));
 	glassWidget1->setUrl(QUrl("https://github.com/byralpha/AntDesign"));
 	glassWidget2 = new GlassWidget(10, 3, this);
 	glassWidget2->setPixmapAndText(":/Imgs/bee.png", "QtAntDesign Widget", "572205527@qq.com");
@@ -84,7 +84,7 @@ void FramelessVideoWindow::resizeEvent(QResizeEvent* event)
 void FramelessVideoWindow::showEvent(QShowEvent* event)
 {
 	// 当窗口显示时，启动视频播放
-	if (m_player->playbackState() != QMediaPlayer::PlayingState)
+	if (m_player->state() != QMediaPlayer::PlayingState)
 	{
 		m_player->play();
 		m_blurTimer->start();
@@ -94,7 +94,7 @@ void FramelessVideoWindow::showEvent(QShowEvent* event)
 void FramelessVideoWindow::hideEvent(QHideEvent* event)
 {
 	// 当窗口隐藏时，视频播放
-	if (m_player->playbackState() == QMediaPlayer::PlayingState)
+	if (m_player->state() == QMediaPlayer::PlayingState)
 	{
 		m_player->stop();
 		m_blurTimer->stop();

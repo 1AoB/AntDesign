@@ -38,8 +38,8 @@ StandardDialogPage::StandardDialogPage(QWidget* parent)
 	buttonLayout->setSpacing(12);
 	font.setPointSize(11.5);
 	font.setBold(false);
-	cancelBtn = new QPushButton("取消");
-	confirmBtn = new QPushButton("确定");
+	cancelBtn = new QPushButton(QString::fromLocal8Bit("取消"));
+	confirmBtn = new QPushButton(QString::fromLocal8Bit("确定"));
 	cancelBtn->setCursor(Qt::PointingHandCursor);
 	confirmBtn->setCursor(Qt::PointingHandCursor);
 	cancelBtn->setFixedSize(60, 32);

@@ -40,7 +40,7 @@ UserInfoBubble::UserInfoBubble(QWidget* parent)
 	gradientWidget->setStyleSheet(StyleSheet::gradientQss(theme.vipGradientStartColor, theme.vipGradientMidColor, theme.vipGradientEndColor));
 
 	QWidget* leftWid = new QWidget(gradientWidget);
-	m_antBtn = new AntButton("续费", 10, gradientWidget);
+	m_antBtn = new AntButton(QString::fromLocal8Bit("续费"), 10, gradientWidget);
 	m_antBtn->setMinimumHeight(50);
 
 	QLabel* vipLabel = new QLabel("会员到期时间:", this);
@@ -64,7 +64,7 @@ UserInfoBubble::UserInfoBubble(QWidget* parent)
 	QHBoxLayout* bottomHlay = new QHBoxLayout(bottomWid);
 	bottomHlay->setContentsMargins(0, 0, 0, 0);
 	QStringList strList;
-	strList << "签到" << "退出登录";
+	strList << QString::fromLocal8Bit("签到") << QString::fromLocal8Bit("退出登录");
 	QStringList objectNames, qssList;
 	objectNames << "signInButton" << "logoutButton";
 	qssList << StyleSheet::signInBtnQss() << StyleSheet::logoutBtnQss();

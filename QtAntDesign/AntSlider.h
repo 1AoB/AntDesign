@@ -43,7 +43,7 @@ public:
 
 protected:
 	void paintEvent(QPaintEvent* event) override;
-	void enterEvent(QEnterEvent* event) override;
+	void enterEvent(QEvent* event) override;
 	void leaveEvent(QEvent* event) override;
 	QSize sizeHint() const;
 	void mousePressEvent(QMouseEvent* event);

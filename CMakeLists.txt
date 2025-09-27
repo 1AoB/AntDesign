@@ -23,22 +23,17 @@ set(CMAKE_AUTORCC ON)    # RCC 仍自动
 set(SRC_DIR "${CMAKE_CURRENT_SOURCE_DIR}/QtAntDesign")
 
 # Qt 模块
-find_package(Qt6 REQUIRED COMPONENTS
+find_package(Qt5 REQUIRED COMPONENTS
     Core
     Gui
     Widgets
     Multimedia
     MultimediaWidgets
-    OpenGLWidgets
+    OpenGL
     Svg
 )
 
-# 根据平台判断是否需要链接 Dwmapi
-if(WIN32)  # Windows 平台
-    target_link_libraries(${PROJECT_NAME} PRIVATE Dwmapi)
-elseif(UNIX)  # Linux 或其他 UNIX-like 系统
 
-endif()
 
 # -------------------------------
 # 文件分组
@@ -53,7 +48,7 @@ file(GLOB_RECURSE THIRD_PARTY_HEADERS "${SRC_DIR}/ThirdParty/*.h" "${SRC_DIR}/Th
 # -------------------------------
 # 手动生成 UI 文件对应的 ui_*.h
 # -------------------------------
-qt6_wrap_ui(UI_HEADERS ${FORM_FILES})
+Qt5_wrap_ui(UI_HEADERS ${FORM_FILES})
 
 # -------------------------------
 # 添加可执行文件
@@ -72,13 +67,13 @@ set_target_properties(${PROJECT_NAME} PROPERTIES FOLDER "QtAntDesign Project")
 
 # 链接 Qt 库
 target_link_libraries(${PROJECT_NAME} PRIVATE
-    Qt6::Core
-    Qt6::Gui
-    Qt6::Widgets
-    Qt6::Multimedia
-    Qt6::MultimediaWidgets
-    Qt6::OpenGLWidgets
-    Qt6::Svg
+    Qt5::Core
+    Qt5::Gui
+    Qt5::Widgets
+    Qt5::Multimedia
+    Qt5::MultimediaWidgets
+    Qt5::OpenGL
+    Qt5::Svg
 )
 
 # 根据平台判断是否需要链接 Dwmapi

@@ -1,7 +1,7 @@
 ﻿#include "CircularAvatar.h"
 #include <qpainterpath.h>
 #include <QEvent>
-#include <QEnterEvent>
+#include <QEvent>
 #include <QTimer>
 #include "AntTooltipManager.h"
 
@@ -79,7 +79,7 @@ void CircularAvatar::paintEvent(QPaintEvent* e)
 	}
 }
 
-void CircularAvatar::enterEvent(QEnterEvent* e)
+void CircularAvatar::enterEvent(QEvent* e)
 {
 	QWidget::enterEvent(e);
 

@@ -36,7 +36,7 @@ void CardWidget::setImageFile(const QString& path)
 	update();
 }
 
-void CardWidget::enterEvent(QEnterEvent* event)
+void CardWidget::enterEvent(QEvent* event)
 {
 	Q_UNUSED(event);
 	m_scaleAnimation->setDirection(QAbstractAnimation::Forward);

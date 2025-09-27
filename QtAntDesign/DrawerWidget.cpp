@@ -13,7 +13,7 @@ DrawerWidget::DrawerWidget(int width, QWidget* parent)
 	setFixedWidth(width);
 	move(-width, 0);
 
-	QLabel* titile = new QLabel("抽屉", this);
+	QLabel* titile = new QLabel(QString::fromLocal8Bit("抽屉"), this);
 	QFont font;
 	font.setBold(true);
 	font.setPointSize(15);

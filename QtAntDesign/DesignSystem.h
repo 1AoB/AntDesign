@@ -5,6 +5,7 @@
 #include <QFont>
 #include "TransparentMask.h"
 #include "MaskWidget.h"
+#include <QIcon>
 
 struct Theme
 {

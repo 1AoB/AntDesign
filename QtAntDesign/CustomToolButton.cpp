@@ -30,7 +30,7 @@ void CustomToolButton::setSvgIcons(const QString& normalPath, const QString& act
 	update();
 }
 
-void CustomToolButton::enterEvent(QEnterEvent* event)
+void CustomToolButton::enterEvent(QEvent* event)
 {
 	if (!isEnabled()) return;
 	hovered = true;

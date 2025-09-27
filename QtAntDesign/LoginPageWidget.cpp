@@ -45,8 +45,8 @@ LoginPageWidget::LoginPageWidget(QWidget* parent)
 	font.setBold(false);
 	QWidget* subWidget1 = new QWidget(leftWidget);
 	QHBoxLayout* subLay1 = new QHBoxLayout(subWidget1);
-	QLabel* subLab1 = new QLabel("邮箱密码登录", subWidget1);
-	registerButton = new QPushButton("注册", subWidget1);
+	QLabel* subLab1 = new QLabel(QString::fromLocal8Bit("邮箱密码登录"), subWidget1);
+	registerButton = new QPushButton(QString::fromLocal8Bit("注册"), subWidget1);
 	subLab1->setFont(font);
 	registerButton->setFont(font);
 	registerButton->setCursor(Qt::PointingHandCursor);
@@ -68,12 +68,12 @@ LoginPageWidget::LoginPageWidget(QWidget* parent)
 	font.setBold(false);
 	MaterialLineEdit* accountEdit = new MaterialLineEdit(leftWidget);
 	accountEdit->setFont(font);
-	accountEdit->setLabelText("邮箱");
+	accountEdit->setLabelText(QString::fromLocal8Bit("邮箱"));
 	accountEdit->setTextFontSize(10.2);
 	accountEdit->setFixedHeight(40);  // 高度可自定义
 	MaterialLineEdit* passwordEdit = new MaterialLineEdit(leftWidget);
 	passwordEdit->setFont(font);
-	passwordEdit->setLabelText("密码");
+	passwordEdit->setLabelText(QString::fromLocal8Bit("密码"));
 	passwordEdit->setTextFontSize(10.2);
 	passwordEdit->setFixedHeight(40);
 	passwordEdit->setPasswordToggleEnabled(leftWidget);
@@ -88,11 +88,11 @@ LoginPageWidget::LoginPageWidget(QWidget* parent)
 	font.setPointSizeF(11);
 	Win11CheckButton* radioBtn = new Win11CheckButton(leftWidget);
 	radioBtn->setFont(font);
-	radioBtn->setText("记住账号");
+	radioBtn->setText(QString::fromLocal8Bit("记住账号"));
 	// sub2
 	QWidget* subWidget2 = new QWidget(leftWidget);
 	QHBoxLayout* subLay2 = new QHBoxLayout(subWidget2);
-	subBtn2 = new QPushButton("忘记密码", subWidget2);
+	subBtn2 = new QPushButton(QString::fromLocal8Bit("忘记密码"), subWidget2);
 	subBtn2->setFont(font);
 	subBtn2->setStyleSheet(StyleSheet::noBorderBtnQss(DesignSystem::instance()->primaryColor()));
 	subLay2->addWidget(radioBtn);
@@ -101,7 +101,7 @@ LoginPageWidget::LoginPageWidget(QWidget* parent)
 	subLay2->setContentsMargins(0, 0, 0, 0);
 	subLay2->setSpacing(0);
 	// 按钮
-	AntButton* antBtn = new AntButton("登录", 11.5, leftWidget);
+	AntButton* antBtn = new AntButton(QString::fromLocal8Bit("登录"), 11.5, leftWidget);
 	antBtn->setFixedHeight(50);
 	connect(antBtn, &AntButton::clicked, this, [this, errorTips, accountEdit, passwordEdit]()
 		{

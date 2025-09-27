@@ -62,7 +62,7 @@ MaterialDialog::MaterialDialog(bool loginState, std::function<void(MaterialDialo
 	// 成功登录
 	connect(loginPage, &LoginPageWidget::loginSuccess, this, [this]()
 		{
-			AntMessageManager::instance()->showMessage(AntMessage::Success, "成功登录");
+			AntMessageManager::instance()->showMessage(AntMessage::Success, QString::fromLocal8Bit("成功登录"));
 			m_loginState = true;
 			emit successLogin(m_loginState);
 		});
@@ -70,7 +70,7 @@ MaterialDialog::MaterialDialog(bool loginState, std::function<void(MaterialDialo
 	connect(registerPage, &RegisterPageWidget::registerSuccess, this, [this]()
 		{
 			// 注册页 → 登录页（向右滑动）
-			AntMessageManager::instance()->showMessage(AntMessage::Success, "成功注册");
+			AntMessageManager::instance()->showMessage(AntMessage::Success, QString::fromLocal8Bit("成功注册"));
 			if (m_callback)
 				m_callback(MaterialDialog::Login);
 			stackedWidget->slideToPage(loginPage, SlideStackedWidget::LeftToRight);

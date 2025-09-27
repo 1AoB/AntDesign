@@ -45,7 +45,7 @@ AntBaseSpinBox::AntBaseSpinBox(QWidget* parent)
 		});
 }
 
-void AntBaseSpinBox::enterEvent(QEnterEvent* event)
+void AntBaseSpinBox::enterEvent(QEvent* event)
 {
 	if (m_animation->state() == QAbstractAnimation::Running)
 		m_animation->stop();
