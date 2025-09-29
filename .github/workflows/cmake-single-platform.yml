@@ -16,10 +16,13 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    # 安装 Qt5 和相关依赖
-    - name: Install Qt5 dependencies
+    # 安装 Qt5（直接从官方安装包）
+    - name: Install Qt5
       run: |
-        choco install qt5 --version 5.15.2
+        # 下载 Qt 5.15.2 版本的安装包
+        Invoke-WebRequest -Uri "https://download.qt.io/official_releases/qt/5.15/5.15.2/qt-opensource-windows-x86-5.15.2.exe" -OutFile "qt-installer.exe"
+        # 执行安装，安装到指定路径
+        Start-Process -Wait -FilePath "qt-installer.exe" -ArgumentList "/S", "/D=C:/Qt/5.15.2"
 
     # 配置 CMake 环境，设置 Qt5 路径
     - name: Configure CMake
